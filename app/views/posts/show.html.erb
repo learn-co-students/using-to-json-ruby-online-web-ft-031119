@@ -8,8 +8,8 @@ $(function () {
   $(".js-next").on("click", function(event) {
     event.preventDefault()
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/posts/" + nextId + "/post_data", function(data) {
-      $(".authorName").text(data["author"]["name"]);
+    $.get("/posts/" + nextId + ".to_json", function(data) {
+      $(".authorName").text(data["author"]);
       $(".postTitle").text(data["title"]);
       $(".postBody").text(data["description"]);
       // re-set the id to current on the link
